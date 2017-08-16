@@ -31,15 +31,18 @@
   },
   "devDependencies": {
     "@types/chai": "^4.0.0",
+    "@types/electron": "^1.6.10",
     "@types/glob": "^5.0.30",
     "@types/mocha": "2.2.38",
     "@types/node": "^6.0.40",
     "@types/path-exists": "^1.0.29",
     "@types/sinon": "^2.3.2",
+    "@types/webdriverio": "^4.8.4",
     "chai": "^4.0.2",
     "mocha": "3.2.0",
     "nyc": "^11.0.2",
     "sinon": "^2.3.6",
+    "spectron": "^3.7.2",
     "typescript": "2.4.0",
     "vscode": "1.1.2"
   },
