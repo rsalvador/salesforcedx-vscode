@@ -26,6 +26,7 @@ export class SpectronApplication {
     this.spectron = new Application({
       path: '/Applications/Visual Studio Code.app/Contents/MacOS/Electron',
       args: [
+        '/Users/james.sweetman/development/salesforcedx-vscode/packages/salesforcedx-vscode-core/test/test_data/test_workspace',
         '--skip-getting-started',
         '--extensions-dir=/Users/james.sweetman/development/salesforcedx-vscode/packages'
       ],
@@ -80,7 +81,7 @@ export class SpectronApplication {
 
   private retrieveKeybindings() {
     fs.readFile(
-      path.join(process.cwd(), `test_data/keybindings.json`),
+      path.join(process.cwd(), `test/test_data/keybindings.json`),
       'utf8',
       (err, data) => {
         if (err) {
