@@ -25,7 +25,7 @@ describe('Integration Test', () => {
       await common.type('>create apex');
       await app.client.keys(['NULL', 'Enter', 'NULL'], false);
       await app.wait();
-      const fileName = 'sampleApexClass';
+      const fileName = `apexClass_${new Date().getTime()}`;
       await common.type(fileName);
       await app.client.keys(['NULL', 'Enter', 'NULL'], false);
       await app.wait();
@@ -36,7 +36,7 @@ describe('Integration Test', () => {
       await common.type(fileName);
       await app.wait();
       const elCount = await common.getQuickOpenElements();
-      expect(elCount).to.equal(3);
+      expect(elCount).to.equal(2);
     });
   });
 });
