@@ -214,6 +214,10 @@
         {
           "command": "sfdx.force.data.soql.query.selection",
           "when": "sfdx:project_opened && editorHasSelection"
+        },
+        {
+          "command": "sfdx.force.apex.execute",
+          "when": "sfdx:project_opened"
         }
       ]
     },
@@ -325,6 +329,10 @@
       {
         "command": "sfdx.force.data.soql.query.selection",
         "title": "%force_data_soql_query_selection_text%"
+      },
+      {
+        "command": "sfdx.force.apex.execute",
+        "title": "%force_apex_execute_text%"
       }
     ]
   }

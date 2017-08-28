@@ -10,6 +10,7 @@ import * as vscode from 'vscode';
 import {
   forceAliasList,
   forceApexClassCreate,
+  forceApexExecute,
   forceApexTestRun,
   forceAuthWebLogin,
   forceConfigList,
@@ -146,10 +147,13 @@ function registerCommands(): vscode.Disposable {
     'sfdx.force.data.soql.query.selection',
     forceDataSoqlQuery
   );
-
   const forceGenerateFauxClassesCmd = vscode.commands.registerCommand(
     'sfdx.force.internal.refreshsobjects',
     forceGenerateFauxClassesCreate
+  );
+  const forceApexExecuteCmd = vscode.commands.registerCommand(
+    'sfdx.force.apex.execute',
+    forceApexExecute
   );
 
   // Internal commands
@@ -159,6 +163,7 @@ function registerCommands(): vscode.Disposable {
   );
 
   return vscode.Disposable.from(
+    forceApexExecuteCmd,
     forceApexTestRunCmd,
     forceAuthWebLoginCmd,
     forceDataSoqlQueryInputCmd,

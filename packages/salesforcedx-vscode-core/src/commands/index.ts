@@ -6,6 +6,7 @@
  */
 
 export { forceAuthWebLogin } from './forceAuthWebLogin';
+export { forceApexExecute } from './forceApexExecute';
 export { forceApexTestRun } from './forceApexTestRun';
 export { forceDataSoqlQuery } from './forceDataSoqlQuery';
 export { forceOrgCreate } from './forceOrgCreate';
