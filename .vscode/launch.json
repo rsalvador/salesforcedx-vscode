@@ -144,7 +144,7 @@
       "outFiles": [
         "${workspaceRoot}/packages/*/out/test/**/*.js"
       ],
-      "preLaunchTask": "Compile",
+      "preLaunchTask": "Compile"
     },
     {
       "name": "Launch Apex Debugger Tests",

@@ -1,28 +1,19 @@
 'use strict';
 
 import {
-  CompletionItem,
-  CompletionItemKind,
   Command,
-  CodeActionRequest,
-  CodeActionParams,
-  CodeActionContext,
   createConnection,
   Diagnostic,
   DiagnosticSeverity,
   IConnection,
-  InitializeParams,
   InitializeResult,
   IPCMessageReader,
   IPCMessageWriter,
   TextDocument,
-  TextEdit,
-  TextDocumentPositionParams,
   TextDocuments,
-  TextDocumentSyncKind
+  TextEdit
 } from 'vscode-languageserver';
 
-import * as vscode from 'vscode';
 import { nls } from '../messages';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport
@@ -112,11 +103,9 @@ function validateTextDocument(textDocument: TextDocument): void {
 
 connection.onCodeAction(params => {
   const uri = params.textDocument.uri;
-  const range = params.range;
   const diagnostics = params.context.diagnostics;
   const result: Command[] = [];
   const edits: TextEdit[] = [];
-  const fixAllEdits: TextEdit[] = [];
   let code = '';
 
   for (const diagnostic of diagnostics) {
@@ -215,6 +204,5 @@ connection.onDidChangeWatchedFiles(change => {
   connection.console.log('We received an file change event');
 });
 
-let t: Thenable<string>;
 // Listen on the connection
 connection.listen();

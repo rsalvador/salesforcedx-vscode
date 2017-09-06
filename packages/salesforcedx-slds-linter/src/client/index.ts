@@ -10,16 +10,13 @@ import { nls } from '../messages';
 
 import {
   commands,
-  Disposable,
   ExtensionContext,
-  window,
-  workspace
+  window
 } from 'vscode';
 import {
   LanguageClient,
   LanguageClientOptions,
   ServerOptions,
-  SettingMonitor,
   TextEdit,
   TransportKind
 } from 'vscode-languageclient';
@@ -72,7 +69,7 @@ export function createLanguageServer(
     if (textEditor && textEditor.document.uri.toString() === uri) {
       textEditor
         .edit(mutator => {
-          for (let edit of edits) {
+          for (const edit of edits) {
             mutator.replace(
               client.protocol2CodeConverter.asRange(edit.range),
               edit.newText
