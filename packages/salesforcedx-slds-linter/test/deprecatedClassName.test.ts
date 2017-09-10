@@ -10,17 +10,15 @@ import * as path from 'path';
 import * as vscode from 'vscode';
 
 describe('SLDS Deprecated Class Name', () => {
-  let res: vscode.Uri[];
+  const res: vscode.Uri[];
 
   before(async () => {
 
     if (vscode.workspace.rootPath) {
-      res = await vscode.workspace.findFiles(path.join('**', '*.cmp'));
       console.log('After res: ', path.join('**', '*.cmp'));
       await vscode.workspace.openTextDocument(res[0]).then(
         document => vscode.window.showTextDocument(document)
       );
-      console.log('opened');
     }
 
   });

@@ -6,11 +6,12 @@
  */
 
 import * as languageServer from '@salesforce/salesforcedx-slds-linter/out/src/client';
+import * as path from 'path';
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('SFDX SLDS Linter Extension Activated');
-  vscode.workspace.findFiles('**/staticresources/*.resource').then(
+  vscode.workspace.findFiles(path.join('**', 'staticresources', '*.resource')).then(
     // all good
     (result: vscode.Uri[]) => {
       for (let i = 0; i < result.length; i++) {
