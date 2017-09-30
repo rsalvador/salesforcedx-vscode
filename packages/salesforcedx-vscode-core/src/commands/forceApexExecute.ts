@@ -54,12 +54,14 @@ class ForceApexExecuteExecutor extends SfdxCommandletExecutor<{}> {
       (execution.stderrSubject as any) as Observable<Error | undefined>
     );
     channelService.streamCommandOutput(execution);
+    channelService.showChannelOutput();
     CancellableStatusBar.show(execution, cancellationTokenSource);
     taskViewService.addCommandExecution(execution, cancellationTokenSource);
   }
 }
 
-class CreateApexTempFile implements ParametersGatherer<{ fileName: string }> {
+export class CreateApexTempFile
+  implements ParametersGatherer<{ fileName: string }> {
   public async gather(): Promise<
     CancelResponse | ContinueResponse<{ fileName: string }>
   > {
@@ -98,7 +100,7 @@ class CreateApexTempFile implements ParametersGatherer<{ fileName: string }> {
 
 export function writeFileAsync(fileName: string, inputText: string) {
   return new Promise(function(resolve, reject) {
-    fs.writeFile(fileName, inputText, function(err: any, result: any) {
+    fs.writeFile(fileName, inputText, function(err: any) {
       if (err) {
         reject(err);
       } else {
