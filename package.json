@@ -18,11 +18,17 @@
     "publish": "node scripts/publish.js",
     "test": "lerna run test --concurrency 1 --stream",
     "test:without-system-tests":
-      "lerna run test --ignore system-tests --concurrency 1 --stream",
+      "lerna run test --ignore system-tests --concurrency 1 --stream; npm run move-unit-test-results",
+    "test:integration":
+      "lerna run test:integration --concurrency 1 --stream; npm run move-integration-test-results",
     "test:system-tests":
       "lerna run test --scope system-tests --concurrency 1 --stream",
     "coverage:system-tests":
       "lerna run coverage --scope system-tests --concurrency 1 --stream",
+    "move-unit-test-results":
+      "node scripts/move-test-results unitcoverage unit-xunit.xml",
+    "move-integration-test-results":
+      "node scripts/move-test-results integrationcoverage integration-xunit.xml",
     "vscode:package":
       "lerna exec --scope @salesforce/salesforcedx-* -- npm prune --production && lerna run vscode:package --concurrency 1",
     "vscode:sha256": "lerna run vscode:sha256 --concurrency 1",
